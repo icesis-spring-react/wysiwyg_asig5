@@ -1,0 +1,13 @@
+/* En tu archivo de estilos CSS (por ejemplo, DirectorsPage.css) */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px; /* Ajusta el margen según tus necesidades */
+  }
+  

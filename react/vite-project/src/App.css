@@ -1,0 +1,25 @@
+#root {
+  max-width: 200%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around; /* Ajusta el espaciado entre los elementos según tus preferencias */
+  background-color: #ffffff; /* Fondo de la barra de navegación */
+  padding: 10px; /* Espaciado interno de la barra de navegación */
+}
+
+nav ul {
+  list-style: none; /* Quita los puntos de lista */
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 100px; /* Ajusta el espaciado entre los elementos de la lista */
+}
+
+nav a {
+  text-decoration: none; /* Quita el subrayado del enlace */
+  color: #333; /* Color del texto del enlace */
+}
