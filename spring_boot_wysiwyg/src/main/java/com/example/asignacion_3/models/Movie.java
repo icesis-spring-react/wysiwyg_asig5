@@ -3,9 +3,12 @@ package com.example.asignacion_3.models;
 import jakarta.persistence.*;
 import java.util.Date;
 
-
+@Entity
+@Table(name = "movie")
 public class Movie {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     private String genre;

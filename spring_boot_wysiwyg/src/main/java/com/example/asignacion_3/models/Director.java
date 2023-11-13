@@ -2,8 +2,12 @@ package com.example.asignacion_3.models;
 
 import jakarta.persistence.*;
 
+@Entity
+@Table(name = "director")
 public class Director {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
 

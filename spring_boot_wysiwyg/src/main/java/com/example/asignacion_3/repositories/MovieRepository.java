@@ -16,48 +16,50 @@ import java.util.Optional;
 import java.util.function.Function;
 
 @Repository
-public class MovieRepository {
+public interface MovieRepository extends JpaRepository<Movie, Long> {
 
-    private static ArrayList<Movie> movies = new ArrayList<>();
+    ArrayList<Movie> findMoviesByDirectorId(Long directorId);
 
-    static {
-        Movie m1 = new Movie("War dogs", "Action", 1, new Date(123, 9, 16));
-
-        m1.setId(1);
-
-        movies.add(m1);
-    }
-
-    public List<Movie> findAll() {
-        return movies;
-    }
-
-    public boolean save(Movie movie) {
-        movie.setId(movies.isEmpty() ? 1 : movies.get(movies.size() - 1).getId() + 1);
-
-        return movies.add(movie);
-    }
-
-    public Movie findBy(Long movieID) {
-        return movies.stream().filter(movie -> movie.getId() == movieID).findFirst().orElse(null);
-    }
-
-    public boolean update(Long id, Movie movie) {
-        Movie aux = findBy(id);
-
-        if (aux != null) {
-            aux.setName(movie.getName());
-            aux.setGenre(movie.getGenre());
-            aux.setDirectorId(movie.getDirectorId());
-            aux.setReleaseDate(movie.getReleaseDate());
-
-            return true;
-        }
-
-        return false;
-    }
-
-    public boolean deleteById(Long id) {
-        return movies.remove(findBy(id));
-    }
+//    private static ArrayList<Movie> movies = new ArrayList<>();
+//
+//    static {
+//        Movie m1 = new Movie("War dogs", "Action", 1, new Date(123, 9, 16));
+//
+//        m1.setId(1);
+//
+//        movies.add(m1);
+//    }
+//
+//    public List<Movie> findAll() {
+//        return movies;
+//    }
+//
+//    public boolean save(Movie movie) {
+//        movie.setId(movies.isEmpty() ? 1 : movies.get(movies.size() - 1).getId() + 1);
+//
+//        return movies.add(movie);
+//    }
+//
+//    public Movie findBy(Long movieID) {
+//        return movies.stream().filter(movie -> movie.getId() == movieID).findFirst().orElse(null);
+//    }
+//
+//    public boolean update(Long id, Movie movie) {
+//        Movie aux = findBy(id);
+//
+//        if (aux != null) {
+//            aux.setName(movie.getName());
+//            aux.setGenre(movie.getGenre());
+//            aux.setDirectorId(movie.getDirectorId());
+//            aux.setReleaseDate(movie.getReleaseDate());
+//
+//            return true;
+//        }
+//
+//        return false;
+//    }
+//
+//    public boolean deleteById(Long id) {
+//        return movies.remove(findBy(id));
+//    }
 }

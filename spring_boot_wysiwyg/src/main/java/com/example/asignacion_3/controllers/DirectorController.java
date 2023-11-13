@@ -3,6 +3,7 @@ package com.example.asignacion_3.controllers;
 import com.example.asignacion_3.models.Director;
 import com.example.asignacion_3.models.Movie;
 import com.example.asignacion_3.services.DirectorService;
+import com.example.asignacion_3.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,9 @@ public class DirectorController {
 
     @Autowired
     private DirectorService directorService;
+
+    @Autowired
+    private MovieService movieService;
 
     @CrossOrigin(maxAge = 3600, origins = "http://localhost:5173")
     @GetMapping("/all")
@@ -64,6 +68,6 @@ public class DirectorController {
     @CrossOrigin(maxAge = 3600, origins = "http://localhost:5173")
     @GetMapping("/{id}/movies")
     public ArrayList<Movie> findDirectorMovies(@PathVariable Long id) {
-        return directorService.getMoviesByDirectorId(id);
+        return movieService.getMoviesByDirectorId(id);
     }
 }
